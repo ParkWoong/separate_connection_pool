@@ -12,6 +12,7 @@ import com.example.connection_pool.mapper.log.LogMapper;
 import com.example.connection_pool.mapper.main.DataMapper;
 import com.zaxxer.hikari.HikariDataSource;
 
+import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -22,10 +23,11 @@ public class TestService {
     private final DataMapper dataMapper;
     private final LogMapper appLogMapper;
 
-    @Qualifier("mainDataSource")
+    
+    @Resource(name = "mainDataSource")
     private final DataSource mainDataSource;
 
-    @Qualifier("logDataSource")
+    @Resource(name = "logDataSource")
     private final DataSource logDataSource;
 
     public DataRow fetchData(long id) {
