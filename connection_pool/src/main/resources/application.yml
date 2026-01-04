@@ -8,14 +8,15 @@ spring:
       username: admin
       password: admin
       driverClassName: com.mysql.cj.jdbc.Driver
-      maximumPoolSize: 10
       minimumIdle: 2
       connectionTimeout: 1500
     main:
       <<: *ds_common
       poolName: MAIN_POOL
+      maximumPoolSize: 3 # for test
 
     log:
       <<: *ds_common
       poolName: LOG_POOL
+      maximumPoolSize: 2 # for test
       
