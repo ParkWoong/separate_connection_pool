@@ -1,0 +1,21 @@
+#=======================
+# Database
+#=======================
+spring:
+  datasource:
+    common: &ds_common
+      jdbcUrl: jdbc:mysql://localhost:3306/local_test
+      username: admin
+      password: admin
+      driverClassName: com.mysql.cj.jdbc.Driver
+      maximumPoolSize: 10
+      minimumIdle: 2
+      connectionTimeout: 1500
+    main:
+      <<: *ds_common
+      poolName: MAIN_POOL
+
+    log:
+      <<: *ds_common
+      poolName: LOG_POOL
+      
